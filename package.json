@@ -1,0 +1,23 @@
+{
+  "name": "cw1",
+  "version": "1.0.0",
+  "description": "web platform development 2 coursework1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hristo4all/WPD_CW1.git"
+  },
+  "keywords": [
+    "node.js",
+    "express"
+  ],
+  "author": "hi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hristo4all/WPD_CW1/issues"
+  },
+  "homepage": "https://github.com/hristo4all/WPD_CW1#readme"
+}
