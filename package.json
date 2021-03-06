@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/hristo4all/WPD_CW1#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "path": "^0.12.7"
   }
 }

@@ -1,25 +1,32 @@
-const http = require("http");
+const express = require("express");
+const path = require("path");
+const app = express();
 
-http
-  .createServer(function (req, res) {
-    // the replace function removes any query strings and slashes
-    // the toLowerCase functions makes it lower case
-    path = req.url.replace(/\/?(?:\?.*)?$/, "").toLowerCase();
-    switch (path) {
-      case "":
-        res.writeHead(200, { "Content-Type": "text/plain" });
-        res.end("Homepage");
-        break;
-      case "/about":
-        res.writeHead(200, { "Content-Type": "text/plain" });
-        res.end("About");
-        break;
-      default:
-        res.writeHead(404, { "Content-Type": "text/plain" });
-        res.end("Not Found");
-        break;
-    }
-  })
-  .listen(3000);
-console.log("Server Started on localhost:3000");
-console.log("press Ctrl^C to terminate...");
+const public = path.join(__dirname, "public");
+app.use(express.static(public));
+
+app.get("/", function (req, res) {
+  res.send("Hello! Welcome to my application.");
+});
+
+app.get("/guestbook", function (req, res) {
+  res.send("<h1>Guestbook Messages</h1>");
+});
+
+app.get("/about", function (req, res) {
+  res.sendFile(path.join(public, "about.html"));
+});
+
+app.use(function (req, res) {
+  res.status(404);
+  res.send("Oops! We didn't find what you are looking for.");
+});
+
+app.listen(3000, () => {
+  console.log("Server started on port 3000. Ctrl^c to quit.");
+});
+/*
+app.listen(3000, function() {
+ console.log('Server started on port 3000. Ctrl^c to quit.');
+})
+*/
