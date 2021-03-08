@@ -22,6 +22,7 @@
   "homepage": "https://github.com/hristo4all/WPD_CW1#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "mustache-express": "^1.3.0",
     "nedb": "^1.8.0",
     "path": "^0.12.7"
   }
