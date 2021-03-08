@@ -11,8 +11,20 @@ exports.peters_entries = function (req, res) {
   db.getPetersEntries();
 };
 exports.landing_page = function (req, res) {
-  res.send("<h1>Welcome to my Application.</h1>");
+  db.init();
+  db.getAllEntries()
+    .then((list) => {
+      res.render("entries", {
+        title: "Guest Book",
+        entries: list,
+      });
+      console.log("promise resolved");
+    })
+    .catch((err) => {
+      console.log("promise rejected", err);
+    });
 };
+
 exports.new_entry = function (req, res) {
   res.redirect("/newEntry.html");
 };

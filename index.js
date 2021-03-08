@@ -4,6 +4,9 @@ const path = require("path");
 const app = express();
 const public = path.join(__dirname, "public");
 
+app.engine("mustache", mustache());
+app.set("view engine", "mustache");
+
 app.use(express.static(public));
 
 const router = require("./routes/guestbookRoutes");
